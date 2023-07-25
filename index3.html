@@ -1,0 +1,73 @@
+<html>
+<head>
+<title> Project 4 </title>
+
+<style>
+*{font-size:50px; font-family:Algerian}
+body{background-color:#C4A484;}
+</style>
+
+<script>
+function show()
+{
+event.preventDefault();
+let name=document.getElementById("name");
+
+if(name.value=="")
+{
+alert("Enter name");
+name.focus();
+ans.innerHTML="";
+return;
+}
+
+else if(name.value.trim()=="")
+{
+alert("Name shouldn't only contain spaces");
+name.focus();
+ans.innerHTML="";
+return;
+}
+
+else if(name.value.trim()=="")
+{
+alert("Name shouldn't only contain spaces");
+name.value="";
+name.focus();
+ans.innerHTML="";
+return;
+}
+
+else if(! name.value.match(/^[A-Za-z ]+$/))
+{
+alert("Name should contain only alphabets");
+name.value="";
+name.focus();
+ans.innerHTML="";
+return;
+}
+
+let ans=document.getElementById("ans");
+let d= new Date();
+let hr=d.getHours();
+let msg="";
+if(hr<12)  msg="Good Morning";
+else if(hr<16) msg="Good Afternoon";
+else msg="Good Evening";
+ans.innerHTML=msg +" "+name.value;
+}
+
+</script>
+</head>
+<body>
+<center>
+<h1> Welcome To Day 1<h1>
+<form onsubmit="show()">
+<input type="text" placeholder="Enter your name" id="name"/>
+<br><br>
+<input type="submit" style="background-color:#F5F5DC;color:5C4033;"value="Welcome"/>
+</form>
+<h1 id="ans"></h1>
+</center>
+</body>
+</html>
